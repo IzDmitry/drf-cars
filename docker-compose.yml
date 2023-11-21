@@ -1,0 +1,12 @@
+version: '3'
+services:
+  web:
+    build:
+      context: ./backend
+    command: gunicorn --bind 0.0.0.0:8000 backend.wsgi
+    ports:
+      - "8000:8000"
+    environment:
+      DEBUG: 0
+      SECRET_KEY: "django-insecure-2862$e%hnk-!8pg$)#-ohd*cs4ze7b=0e@9_0w4_=f0o50*1z_"
+      DJANGO_ALLOWED_HOSTS: "localhost 127.0.0.1 [::1]"
